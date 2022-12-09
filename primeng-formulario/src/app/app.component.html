@@ -1,0 +1,30 @@
+<router-outlet></router-outlet>
+
+<div class="card p-5">
+  <h3>Cadastro de Pessoa Fisica</h3>
+    <div class="grid">
+      <div class="field col-6">
+        <label for="inNome">Nome</label>
+        <input id="inNome" type="text" pInputText [(ngModel)]="nome">
+      </div>
+
+      <div class="field col-6">
+        <label for="inSobrenome">Sobrenome</label>
+        <input id="inSobrenome" type="text" pInputText [(ngModel)]="sobrenome">
+      </div>
+
+
+    </div>
+</div>
+
+<div class="field col-12">
+  <label>Estado Civil</label>
+  <ng-container *ngFor="let ecVar of estadoCivilArray">
+    <div class="field-checkbox">
+      <p-radioButton [inputId]="ecVar.chave" name="inEstadoCivil" [value]="ecVar" [(ngModel)]="estadoCivilSelecionado"></p-radioButton>
+      <label [for]="ecVar.chave"> {{ecVar.valor}} </label>
+    </div>
+  </ng-container>
+
+  <p-button label="Cadastrar" (onClick)="cadastrar()"></p-button>
+</div>
